@@ -1,0 +1,22 @@
+# AI TOLD ME TO DO IT
+# Build and binary files
+x64/
+Debug/
+Release/
+*.exe
+*.dll
+*.lib
+*.pdb
+
+# Visual Studio files
+.vs/
+*.user
+*.filters
+
+# CUDA specific
+*.i
+*.ii
+*.gpu
+*.ptx
+*.cubin
+*.fatbin
