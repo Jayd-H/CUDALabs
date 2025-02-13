@@ -69,7 +69,7 @@ The difference between these Kernels and the ones previously is that it creates 
 
 ```int i = threadIdx.x;``` is not sufficient index handling for threads when creating 2D blocks with ```addKernel << <1, dim3(3, 2) >> > (dev_c, dev_a, dev_b);```. Using this, threads do not get unique ID's in their 2D block as they dont have an X and Y coordinate.
 
-We would need to change this code to something like this: ```int i = threadIdx.x + threadIdx.y * blockDim.x;```. This means for `````addKernel << <1, dim3(3, 2) >> > (dev_c, dev_a, dev_b);``` it would be a 2D 3x2 block of threads. 
+We would need to change this code to something like this: ```int i = threadIdx.x + threadIdx.y * blockDim.x;```. This means for ```addKernel << <1, dim3(3, 2) >> > (dev_c, dev_a, dev_b);``` it would be a 2D 3x2 block of threads. 
 
 ## Exercise 5
 
