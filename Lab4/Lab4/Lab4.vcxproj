@@ -10,8 +10,14 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ImageProcess_cuda.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <CudaCompile Include="ImageProcess_cuda.cu" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{AC83A090-D5B3-4CDA-A072-6767B73BA8DD}</ProjectGuid>
+    <ProjectGuid>{D2FE5149-3302-87E4-D888-BD7AE9DEB4AE}</ProjectGuid>
     <RootNamespace>Lab4</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -30,7 +36,7 @@
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
-    <Import Project="$(VCTargetsPath)\BuildCustomizations\CUDA 12.4.props" />
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\CUDA 12.8.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
@@ -41,8 +47,8 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\Users\725291\OneDrive - hull.ac.uk\CUDALabs\CUDALabs\Lab4\Common;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\725291\OneDrive - hull.ac.uk\CUDALabs\CUDALabs\Lab4\Common\lib\x64;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\Willy\Documents\Jayden\GitHub\CUDALabs\Lab4\Lab4\Common;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\Willy\Documents\Jayden\GitHub\CUDALabs\Lab4\Lab4\Common\lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -78,11 +84,8 @@
       <TargetMachinePlatform>64</TargetMachinePlatform>
     </CudaCompile>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <CudaCompile Include="kernel.cu" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
-    <Import Project="$(VCTargetsPath)\BuildCustomizations\CUDA 12.4.targets" />
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\CUDA 12.8.targets" />
   </ImportGroup>
 </Project>
