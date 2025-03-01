@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35825.156 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MatMulCUDA", "MatMulCUDA.vcxproj", "{40C4AF98-AC88-6C0F-291E-E4BD4D1284FC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{40C4AF98-AC88-6C0F-291E-E4BD4D1284FC}.Debug|x64.ActiveCfg = Debug|x64
+		{40C4AF98-AC88-6C0F-291E-E4BD4D1284FC}.Debug|x64.Build.0 = Debug|x64
+		{40C4AF98-AC88-6C0F-291E-E4BD4D1284FC}.Release|x64.ActiveCfg = Release|x64
+		{40C4AF98-AC88-6C0F-291E-E4BD4D1284FC}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AD0B0881-81E4-49A6-964F-13C71D0AC22A}
+	EndGlobalSection
+EndGlobal
