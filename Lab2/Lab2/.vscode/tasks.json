@@ -1,0 +1,21 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "CUDA Build",
+			"type": "shell",
+			"windows": {
+				"command": "cmd.exe",
+				"args": [
+					"/C",
+					"if not exist \"workspaceFolder\bin\" mkdir \"workspaceFolder\bin\" && nvcc \"file\" -o \"workspaceFolder\bin\fileBasenameNoExtension.exe\""
+				]
+			},
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"problemMatcher": []
+		}
+	]
+}
