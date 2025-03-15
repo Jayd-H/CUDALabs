@@ -25,52 +25,28 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#ifndef _BICUBICTEXTURE_CU_
-#define _BICUBICTEXTURE_CU_
+#pragma once
 
-#include <stdlib.h>
+#ifndef _RENDERCHECK_D3D11_H_
+#define _RENDERCHECK_D3D11_H_
+
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
+#include <assert.h>
+#include <d3d11.h>
 
-#include <helper_math.h>
+class CheckRenderD3D11
+{
+    public:
 
- // includes, cuda
-#include <helper_cuda.h>
+        CheckRenderD3D11() {}
 
-typedef unsigned int uint;
-typedef unsigned char uchar;
+        static HRESULT ActiveRenderTargetToPPM(ID3D11Device  *pDevice, const char *zFileName);
+        static HRESULT ResourceToPPM(ID3D11Device *pDevice, ID3D11Resource *pResource, const char *zFileName);
 
-
-cudaArray* d_imageArray = 0;
-
-
-__global__ void d_render(uchar4* d_output, uint width, uint height) {
-    uint x = __umul24(blockIdx.x, blockDim.x) + threadIdx.x;
-    uint y = __umul24(blockIdx.y, blockDim.y) + threadIdx.y;
-    uint i = __umul24(y, width) + x;
-
-
-
-    if ((x < width) && (y < height)) {
-        d_output[i] = make_uchar4(0, 0, 0xff,  0);
-    }
-}
-
-
-extern "C" void freeTexture() {
-
-    checkCudaErrors(cudaFreeArray(d_imageArray));
-}
-
-// render image using CUDA
-extern "C" void render(int width, int height,  dim3 blockSize, dim3 gridSize,
-     uchar4 * output) {
-
-
-            d_render << <gridSize, blockSize >> > (output, width, height);
-
-
-    getLastCudaError("kernel failed");
-}
+        static bool PPMvsPPM(const char *src_file, const char *ref_file, const char *exec_path,
+                             const float epsilon, const float threshold = 0.0f);
+};
 
 #endif
