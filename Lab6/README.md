@@ -1,14 +1,16 @@
 # Lab 6
 
+Please excuse the formatting, I am using a markdown to PDF converter because this lab is image heavy.
+
 ## Exercise 1
 
 I got it running and working, seeing just a red square:
 
-![Red](image.png)
+![Red](red.png)
 
 I altered this line `d_output[i] = make_uchar4(0, 0, 0xff, 0);` to this: `d_output[i] = make_uchar4(0, 0xff, 0xff,  0);` and it gave me a pretty yellow square:
 
-![alt text](image-1.png)
+![Yellow](yellow.png)
 
 ## Exercise 2
 
@@ -56,11 +58,11 @@ This version is more concise, calculating that the variable `c` is either 0 or 2
 
 Both of these have the same output:
 
-![RB Checkered](image-2.png)
+![RB Checkered](RBC.png)
 
 To enlargen the square, we change this line `unsigned char c = ((((x & 0x8) == 0) ^ ((y & 0x8) == 0))) * 255;` to this `unsigned char c = ((((x & 0x8) == 0) ^ ((y & 0x8) == 0))) * 255;`. This modifies the bit mask, the higher the bit mask value, the larger the squares will be.
 
-![Big RB Checkered](image-3.png)
+![Big RB Checkered](BRBC.png)
 
 To make a red circle with a dark green background, we need to modify the code further. First we have the find the center of the frame, from there we can iterate through each pixel and check the distance from the center. If it is below a certain distance, that pixel is red. If not, that pixel is slightly greenish:
 
@@ -95,7 +97,7 @@ __global__ void d_render(uchar4* d_output, uint width, uint height) {
 }
 ```
 
-![Red Circle](image-4.png)
+![Red Circle](RC.png)
 
 We can take this further by drawing it based on pixel coordinates (-1, -1 - 1, 1). To avoid distortion we can scale the u-coordinate using window aspect ratio. The code here is appropraited from the brief.
 
@@ -130,7 +132,7 @@ __global__ void d_render(uchar4* d_output, uint width, uint height) {
 }
 ```
 
-![Squished Red Circle](image-5.png)
+![Squished Red Circle](SRBC.png)
 
 As you can see, the circle retains its size even when squashed horizontally.
 
@@ -192,7 +194,7 @@ __global__ void d_render(uchar4* d_output, uint width, uint height) {
 }
 ```
 
-![Mandelbrot](image-6.png)
+![Mandelbrot](mandelbrot.png)
 
 ### Julia Set
 
@@ -252,7 +254,7 @@ __global__ void d_render(uchar4* d_output, uint width, uint height) {
 }
 ```
 
-![alt text](image-7.png)
+![alt text](julia.png)
 
 Both of these turned out great and I am happy with the result.
 
@@ -260,4 +262,4 @@ Both of these turned out great and I am happy with the result.
 ## Lab 6 Reflection
 
 I enjoyed this lab, especially the section where we were tasked to render the cool fractals. I noticed at the start of exercise 3 that for the circle section of exercise 2, the circle background is actually meant to be black and not a dark green. Obviously that did not affect much but I thought it was worth mentioning as to not cause confusion. I feel like I have become a lot better at manipulating specific pixels within images in this lab. It makes me excited to figure out more complex shapes or even try to code different effects (Gaussian blur, Anti-Aliasing etc.). I am also unsure whether or not I made the right call at the start of task 2 by selecting the method that most closely resembled the given psuedocode, but I think I was correct.
-  
+
